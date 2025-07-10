@@ -5,14 +5,16 @@
   position: sticky;
   top: fluid-to-laptop(50, 40);
   color: var(--font-color);
+  z-index: 100;
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--header-background-color);
+    background-color: var(--header-background-color-blur);
     border-radius: 100px;
     padding: fluid-to-laptop(20, 10);
+    backdrop-filter: blur(10px);
   }
 
   &__logo {
@@ -110,7 +112,7 @@
     .moon {
       @include flex-center;
 
-      padding: 10px;
+      padding: fluid-to-laptop(10, 7.5);
       border-radius: 50%;
       color: transparent;
       z-index: 0;
@@ -118,6 +120,10 @@
       svg,
       svg * {
         stroke: var(--font-color);
+      }
+
+      svg {
+        @include square(fluid-to-laptop(30, 25))
       }
     }
 
@@ -130,7 +136,7 @@
 
     &.is-active {
       &::before {
-        right: 50%;
+        translate: -100% -50%;
       }
 
       .sun {

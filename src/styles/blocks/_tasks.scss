@@ -1,0 +1,119 @@
+@use '../helpers' as *;
+
+.tasks {
+  padding-top: calc(100px + fluid-to-laptop(50, 40));
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: fluid(140, 50);
+  }
+
+  &__title {
+    color: var(--color-gray-15);
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 20px;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fluid-to-laptop(800, 700);
+    margin-bottom: 10px;
+    transition-duration: var(--transition-duration);
+
+    @include hover {
+      transform: translateY(-5px);
+    }
+
+    &.is-active {
+      .tasks__item-description {
+        padding: 30px 20px;
+        height: auto;
+        width: 100%;
+        font-size: fluid-to-laptop(18, 16);
+        margin-top: 10px;
+        z-index: auto;
+      }
+
+      .tasks__item-button.open {
+        background-color: var(--font-color);
+        color: var(--task-button-active-font-color);
+      }
+    }
+
+    &-header {
+      padding: 5px;
+      padding-left: 20px;
+      background-color: var(--blocks-color);
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &-title {
+      font-size: fluid-to-laptop(18, 16);
+    }
+
+    &-buttons {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+
+    &-button {
+      @include flex-center;
+
+      border: none;
+      border-radius: 100px;
+      color: var(--color-light);
+
+      &:not(:last-child) {
+        padding: 13px;
+      }
+
+      &.delete {
+        background-color: var(--color-red);
+      }
+
+      &.complite {
+        background-color: var(--color-green);
+      }
+
+      &.open {
+        padding: 16px 24px;
+        font-size: fluid-to-laptop(18, 16);
+        background-color: var(--task-button-color);
+
+        @include hover {
+          opacity: 0.8;
+        }
+
+        &.is-active {
+          background-color: var(--font-color);
+        }
+      }
+    }
+
+    &-description {
+      background-color: var(--blocks-color);
+      border-radius: var(--border-radius-l);
+      font-size: 10px;
+      color: var(--color-light);
+      transition-duration: var(--transition-duration-long);
+      overflow: hidden;
+      height: 0;
+      width: 60%;
+      margin-top: -10px;
+      z-index: -1;
+    }
+  }
+}

@@ -4,4 +4,5 @@
 @use 'utils';
 @use 'globals';
 
-@use './blocks/header'
+@use './blocks/header';
+@use './blocks/tasks';

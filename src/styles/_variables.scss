@@ -21,6 +21,10 @@
   --blocks-color: var(--color-gray-20);
   --backgroing-color: var(--color-gray-30);
   --header-background-color: var(--color-gray-25);
+  --header-background-color-blur: #19171860;
+  --task-button-color: var(--color-gray-25);
+  --task-button-active-font-color: var(--color-gray-25);
+  
 
   --font-family-base: 'Gotham', sans-serif;
 
@@ -28,6 +32,9 @@
   --container-padding-x: 10px;
 
   --transition-duration: 0.2s;
+  --transition-duration-long: 0.4s;
+
+  --border-radius-l: #{fluid(50, 30)};
 
   @include laptop {
     --container-width: #{rems(1150)};
@@ -40,4 +47,7 @@ html.light {
   --blocks-color: var(--color-gray-10);
   --backgroing-color: var(--color-gray-05);
   --header-background-color: var(--color-gray-10);
+  --header-background-color-blur: #7B797A60;
+  --task-button-color: var(--color-gray-15);
+  --task-button-active-font-color: var(--color-light);
 }
