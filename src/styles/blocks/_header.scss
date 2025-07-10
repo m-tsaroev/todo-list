@@ -1,0 +1,148 @@
+@use '../helpers' as *;
+
+.header {
+  width: 100%;
+  position: sticky;
+  top: fluid-to-laptop(50, 40);
+  color: var(--font-color);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--header-background-color);
+    border-radius: 100px;
+    padding: fluid-to-laptop(20, 10);
+  }
+
+  &__logo {
+    border-radius: 50%;
+
+    @include hover {
+      box-shadow: 0px 0px 10px 0px var(--font-color);
+    }
+  }
+
+  &__menu {
+    &-list {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      column-gap: 5px;
+      border: 2px solid var(--font-color);
+      border-radius: 100px;
+    }
+
+    &-item {
+      padding: fluid-to-laptop(14, 10) 24px;
+      border-radius: 100px;
+      cursor: pointer;
+
+      @include hover {
+        color: var(--color-light);
+      }
+
+      &.is-active {
+        background-color: var(--font-color);
+        color: var(--blocks-color);
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: 10px;
+
+    button {
+      @include hover {
+        box-shadow: 0px 0px 10px 0px var(--font-color);
+      }
+    }
+  }
+
+  &__search-button {
+    padding: 5px;
+    background: transparent;
+    border: 2px solid var(--font-color);
+    border-radius: 50%;
+
+    &-icon {
+      padding: fluid-to-laptop(15, 13);
+      background-color: var(--font-color);
+      border-radius: 50%;
+      transition-duration: var(--transition-duration);
+      color: var(--header-background-color);
+
+      @include flex-center;
+
+      svg circle {
+        fill: transparent;
+        // stroke: red;
+      }
+    }
+  }
+
+  &__switch-theme-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    padding: 5px;
+    background: transparent;
+    border: 2px solid var(--font-color);
+
+    &::before {
+      @include abs-y;
+      @include square(fluid-to-laptop(50, 40));
+
+      content: '';
+      right: 5px;
+      background-color: var(--font-color);
+      border-radius: 50%;
+      transition-duration: var(--transition-duration);
+    }
+
+    .sun,
+    .moon {
+      @include flex-center;
+
+      padding: 10px;
+      border-radius: 50%;
+      color: transparent;
+      z-index: 0;
+
+      svg,
+      svg * {
+        stroke: var(--font-color);
+      }
+    }
+
+    .moon {
+      svg,
+      svg * {
+        stroke: var(--header-background-color);
+      }
+    }
+
+    &.is-active {
+      &::before {
+        right: 50%;
+      }
+
+      .sun {
+        svg,
+        svg * {
+          stroke: var(--header-background-color);
+        }
+      }
+
+      .moon {
+        svg,
+        svg * {
+          stroke: var(--font-color);
+        }
+      }
+    }
+  }
+}
