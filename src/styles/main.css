@@ -424,7 +424,6 @@ button[aria-label]::before {
   border-radius: 100px;
 }
 .header__menu-item {
-  padding: clamp(0.625rem, -0.1964285714rem + 1.1428571429vw, 0.875rem) 24px;
   border-radius: 100px;
   cursor: pointer;
 }
@@ -442,6 +441,9 @@ button[aria-label]::before {
   background-color: var(--font-color);
   color: var(--blocks-color);
   pointer-events: none;
+}
+.header__menu-link {
+  padding: clamp(0.625rem, -0.1964285714rem + 1.1428571429vw, 0.875rem) 24px;
 }
 .header__buttons {
   display: flex;

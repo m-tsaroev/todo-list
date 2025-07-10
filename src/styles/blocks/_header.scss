@@ -34,7 +34,6 @@
     }
 
     &-item {
-      padding: fluid-to-laptop(14, 10) 24px;
       border-radius: 100px;
       cursor: pointer;
 
@@ -47,6 +46,10 @@
         color: var(--blocks-color);
         pointer-events: none;
       }
+    }
+
+    &-link {
+      padding: fluid-to-laptop(14, 10) 24px;
     }
   }
 
