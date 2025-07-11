@@ -407,6 +407,7 @@ button[aria-label]::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: 10px;
   background-color: var(--header-background-color-blur);
   border-radius: 100px;
   padding: clamp(0.625rem, -1.4285714286rem + 2.8571428571vw, 1.25rem);
@@ -487,6 +488,38 @@ button[aria-label]::before {
 }
 .header__search-button-icon svg circle {
   fill: transparent;
+}
+.header__search-button-icon svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 21px;
+  max-height: 21px;
+}
+.header__search-field {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 0;
+  border: 2px solid var(--font-color);
+  background-color: var(--blocks-color);
+  padding: clamp(0.875rem, 0.4642857143rem + 0.5714285714vw, 1rem) 10px;
+  font-size: clamp(0.875rem, 0.4642857143rem + 0.5714285714vw, 1rem);
+  font-weight: 500;
+  color: var(--color-light);
+  border-radius: 100px;
+  width: 100%;
+  max-width: 300px;
+  z-index: -2;
+  opacity: 0;
+  transition-duration: var(--transition-duration-long);
+}
+.header__search-field.is-active {
+  opacity: 1;
+  top: calc(100% + 20px);
+}
+.header__search-field:focus-visible {
+  outline: none;
 }
 .header__switch-theme-button {
   position: relative;
