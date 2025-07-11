@@ -1,35 +1,41 @@
 class TasksList {
-  selectors = {
+  static selectors = {
     tasksList: '[data-js-tasks-list]',
   }
 
-  storageKey = 'tasksList'
+  static storageKey = 'tasksList'
+
+  static tasksListElement = document.querySelector(
+    TasksList.selectors.tasksList
+  )
 
   constructor() {
-    this.tasksListElement = document.querySelector(this.selectors.tasksList)
-    this.renderTasks()
+    // let newTasks = []
+
+    // for (let i = 0; i < 20; i++) {
+    //   newTasks.push({
+    //     id: i,
+    //     title: `Task ${i}`,
+    //     description:
+    //       'description description description description description description description',
+    //   })
+    // }
+
+    // localStorage.setItem(TasksList.storageKey, JSON.stringify(newTasks))
+
+    TasksList.renderTasks()
   }
 
-  renderTasks() {
-    let newTasks = []
-
-    for (let i = 0; i < 20; i++) {
-      newTasks.push({
-        id: i,
-        title: `Task ${i}`,
-        description: 'description description description description description description description'
-      })
-    }
-
-    localStorage.setItem(this.storageKey, JSON.stringify(newTasks))
-
-    const tasks = JSON.parse(localStorage.getItem(this.storageKey))
+  static renderTasks() {
+    const tasks = localStorage.getItem(this.storageKey)
+      ? JSON.parse(localStorage.getItem(this.storageKey))
+      : ''
 
     // console.log(tasks);
 
-    tasks.forEach(({ title, description }) => {
-      this.tasksListElement.innerHTML += `
-        <li class="tasks__item" data-js-task>
+    tasks ? tasks.forEach(({ title, description, id }) => {
+      TasksList.tasksListElement.innerHTML += `
+        <li class="tasks__item" data-js-task id="${id}">
           <header class="tasks__item-header">
             <h2 class="tasks__item-title">${title}</h2>
             <div class="tasks__item-buttons">
@@ -57,7 +63,29 @@ class TasksList {
           </div>
         </li>
       `
+    }) : TasksList.tasksListElement.innerHTML = ''
+  }
+
+  static deleteTask(id) {
+    console.log(1)
+    const tasks = JSON.parse(localStorage.getItem(TasksList.storageKey))
+
+    console.log(tasks)
+
+    const filteredTasks = tasks.filter((task) => {
+      // console.log(task.id.toString(), id);
+      return task.id.toString() !== id.toString()
     })
+
+    console.log(filteredTasks)
+
+    localStorage.setItem(TasksList.storageKey, '')
+
+    TasksList.renderTasks()
+
+    localStorage.setItem(TasksList.storageKey, JSON.stringify(filteredTasks))
+
+    TasksList.renderTasks()
   }
 }
 

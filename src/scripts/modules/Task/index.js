@@ -1,7 +1,8 @@
-const taskSelector = '[data-js-task]'
+import TasksList from "../TasksList"
 
 class Task {
   selectors = {
+    task: '[data-js-task]',
     openCloseButton: '[data-js-open-close-button]',
     compliteButton: '[data-js-complite-button]',
     deleteButton: '[data-js-delete-button]',
@@ -13,13 +14,18 @@ class Task {
     isDelete: 'is-delete',
   }
 
-  constructor(taskElement) {
-    this.taskElement = taskElement
+  constructor() {
     this.bindEvents()
   }
 
   onTaskElementClick = (event) => {
     const { target } = event
+
+    const taskElement = target.closest(this.selectors.task)
+
+    if (!taskElement) {
+      return
+    }
 
     const isOpenCloseButtonElement = target.closest(
       this.selectors.openCloseButton
@@ -29,42 +35,32 @@ class Task {
     )
     const isDeleteBittonElement = target.closest(this.selectors.deleteButton)
 
-    const hasIsDeleteClass = this.taskElement.classList.value.includes(
+    const hasIsDeleteClass = taskElement.classList.value.includes(
       this.stateClasses.isDelete
     )
-    const hasIsCompliteClass = this.taskElement.classList.value.includes(
+    const hasIsCompliteClass = taskElement.classList.value.includes(
       this.stateClasses.isComplite
     )
 
     if (isOpenCloseButtonElement) {
-      this.taskElement.classList.toggle(this.stateClasses.isActive)
-      target.innerText = this.taskElement.classList.value.includes(
+      taskElement.classList.toggle(this.stateClasses.isActive)
+      target.innerText = taskElement.classList.value.includes(
         this.stateClasses.isActive
       )
         ? 'Close'
         : 'Open'
     } else if (isCompliteButtonElement && !hasIsDeleteClass) {
-      this.taskElement.classList.add(this.stateClasses.isComplite)
+      taskElement.classList.add(this.stateClasses.isComplite)
     } else if (isDeleteBittonElement && !hasIsCompliteClass) {
-      this.taskElement.classList.add(this.stateClasses.isDelete)
+      taskElement.classList.add(this.stateClasses.isDelete)
+      console.log(taskElement.getAttribute('id'));
+      TasksList.deleteTask(taskElement.getAttribute('id'))
     }
   }
 
   bindEvents() {
-    this.taskElement.addEventListener('click', this.onTaskElementClick)
+    document.addEventListener('click', this.onTaskElementClick)
   }
 }
 
-class TaskCollection {
-  constructor() {
-    this.init()
-  }
-
-  init() {
-    document.querySelectorAll(taskSelector).forEach((taskElement) => {
-      new Task(taskElement)
-    })
-  }
-}
-
-export { TaskCollection }
+export { Task }
