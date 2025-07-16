@@ -1,3 +1,4 @@
+import { HistoryTasks } from '../HistoryTasks/HistoryTasks'
 import TasksList from '../TasksList/TasksList'
 
 class Task {
@@ -27,7 +28,13 @@ class Task {
       return
     }
 
-    const taskElementId = taskElement.getAttribute('id')
+    console.log(taskElement)
+
+    const task = {
+      id: taskElement.getAttribute('id'),
+      name: taskElement.querySelector('h2').innerText,
+      description: taskElement.querySelector('p').innerText,
+    }
 
     const isOpenCloseButtonElement = target.closest(
       this.selectors.openCloseButton
@@ -53,10 +60,13 @@ class Task {
         : 'Open'
     } else if (isCompliteButtonElement && !hasIsDeleteClass) {
       taskElement.classList.add(this.stateClasses.isComplite)
+
+      HistoryTasks.addToHistory(task)
+      TasksList.deleteTask(task.id)
     } else if (isDeleteBittonElement && !hasIsCompliteClass) {
       taskElement.classList.add(this.stateClasses.isDelete)
 
-      TasksList.deleteTask(taskElementId)
+      TasksList.deleteTask(task.id)
     }
   }
 
