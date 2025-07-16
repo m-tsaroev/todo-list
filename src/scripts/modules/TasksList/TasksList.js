@@ -1,17 +1,18 @@
+import { getCheckedStorage } from "../../utils/getCheckedStorage"
+
 class TasksList {
   static selectors = {
     tasksList: '[data-js-tasks-list]',
   }
 
-  static storageKey = 'tasksList'
-
-  static tasksListFromStorage = JSON.parse(
-    localStorage.getItem(TasksList.storageKey)
-  )
+  static tasksListStorageKey = 'tasksList'
+  static tasksHistoryListStorageKey = 'tasksHistoryList'
 
   static tasksListElement = document.querySelector(
     TasksList.selectors.tasksList
   )
+
+  c = 0
 
   constructor() {
     // let newTasks = []
@@ -25,17 +26,18 @@ class TasksList {
     //   })
     // }
 
-    // localStorage.setItem(TasksList.storageKey, JSON.stringify(newTasks))
+    // localStorage.setItem(TasksList.tasksListStorageKey, JSON.stringify(newTasks))
 
     TasksList.renderTasks(TasksList.tasksListFromStorage)
   }
 
-  static renderTasks(tasks, duration = false) {
-    setTimeout(
-      () => {
-        TasksList.tasksListElement.innerHTML = ''
+  static renderTasks() {
+    TasksList.tasksListElement.innerHTML = ''
 
-        tasks.forEach(({ title, description, id }) => {
+    const tasks = getCheckedStorage(TasksList.tasksListStorageKey)
+
+    tasks
+      ? tasks.forEach(({ title, description, id }) => {
           TasksList.tasksListElement.innerHTML += `
         <li class="tasks__item" data-js-task id="${id}">
           <header class="tasks__item-header">
@@ -64,29 +66,26 @@ class TasksList {
         </li>
       `
         })
-      },
-      duration ? 500 : 0
-    )
-
-    console.log('render')
+      : ''
   }
 
   static deleteTask(id) {
-    console.log(1)
-    const tasks = TasksList.tasksListFromStorage
+    const tasks = getCheckedStorage(TasksList.tasksListStorageKey)
 
-    console.log(tasks)
+    const filteredTasks = tasks
+      ? tasks.filter((task) => {
+          return task.id.toString() !== id.toString()
+        })
+      : ''
 
-    const filteredTasks = tasks.filter((task) => {
-      // console.log(task.id.toString(), id);
-      return task.id.toString() !== id.toString()
-    })
-
-    localStorage.setItem(TasksList.storageKey, '')
+    localStorage.setItem(TasksList.tasksListStorageKey, '')
 
     TasksList.renderTasks()
 
-    localStorage.setItem(TasksList.storageKey, JSON.stringify(filteredTasks))
+    localStorage.setItem(
+      TasksList.tasksListStorageKey,
+      JSON.stringify(filteredTasks)
+    )
 
     TasksList.renderTasks()
   }

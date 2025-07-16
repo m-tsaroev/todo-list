@@ -626,6 +626,24 @@ button[aria-label]::before {
   background-color: var(--font-color);
   color: var(--task-button-active-font-color);
 }
+.tasks__item.is-complite {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.5;
+}
+.tasks__item.is-complite .tasks__item-title {
+  position: relative;
+}
+.tasks__item.is-complite .tasks__item-title::before {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  content: "";
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--font-color);
+}
 .tasks__item-header {
   padding: 5px;
   padding-left: 20px;

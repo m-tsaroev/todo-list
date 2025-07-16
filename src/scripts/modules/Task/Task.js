@@ -1,4 +1,4 @@
-import TasksList from "../TasksList"
+import TasksList from '../TasksList/TasksList'
 
 class Task {
   selectors = {
@@ -27,6 +27,8 @@ class Task {
       return
     }
 
+    const taskElementId = taskElement.getAttribute('id')
+
     const isOpenCloseButtonElement = target.closest(
       this.selectors.openCloseButton
     )
@@ -53,8 +55,8 @@ class Task {
       taskElement.classList.add(this.stateClasses.isComplite)
     } else if (isDeleteBittonElement && !hasIsCompliteClass) {
       taskElement.classList.add(this.stateClasses.isDelete)
-      console.log(taskElement.getAttribute('id'));
-      TasksList.deleteTask(taskElement.getAttribute('id'))
+
+      TasksList.deleteTask(taskElementId)
     }
   }
 

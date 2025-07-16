@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <title>Todo | Create</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header__inner inner container">
+      <a class="header__logo" href="https://github.com/m-tsaroev" aria-label="Author github" target="_blank">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M30 0C13.425 0 4.37863e-06 13.7649 4.37863e-06 30.7596C-0.00339828 37.2169 1.97644 43.5113 5.65865 48.7498C9.34086 53.9884 14.5384 57.9051 20.514 59.9442C22.014 60.2119 22.575 59.2891 22.575 58.4801C22.575 57.7511 22.536 55.3303 22.536 52.7527C15 54.1768 13.05 50.8702 12.45 49.1384C12.111 48.2525 10.65 45.5242 9.375 44.7921C8.325 44.2169 6.825 42.7927 9.336 42.7558C11.7 42.7158 13.386 44.9859 13.95 45.9086C16.65 50.5595 20.964 49.2522 22.686 48.4463C22.95 46.4469 23.736 45.1028 24.6 44.3338C17.925 43.5648 10.95 40.9102 10.95 29.1447C10.95 25.798 12.111 23.0328 14.025 20.8765C13.725 20.1075 12.675 16.9547 14.325 12.7252C14.325 12.7252 16.836 11.9193 22.575 15.8812C25.0172 15.1862 27.5405 14.8364 30.075 14.8415C32.625 14.8415 35.175 15.186 37.575 15.8781C43.311 11.8793 45.825 12.7283 45.825 12.7283C47.475 16.9577 46.425 20.1106 46.125 20.8796C48.036 23.0328 49.2 25.7611 49.2 29.1447C49.2 40.9502 42.189 43.5648 35.514 44.3338C36.6 45.2935 37.539 47.139 37.539 50.0243C37.539 54.1368 37.5 57.4435 37.5 58.4832C37.5 59.2891 38.064 60.2488 39.564 59.9412C45.5191 57.8797 50.6938 53.9553 54.3597 48.7205C58.0257 43.4857 59.9983 37.204 60 30.7596C60 13.7649 46.575 0 30 0Z"
+            fill="#A7A5A6" />
+        </svg>
+      </a>
+      <nav class="header__menu">
+        <ul class="header__menu-list">
+          <li class="header__menu-item" data-js-header-menu-item>
+            <a href="/" class="header__menu-link">All</a>
+          </li>
+          <li class="header__menu-item" data-js-header-menu-item>
+            <a href="/create" class="header__menu-link">Create</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__buttons">
+        <button class="header__burger-button visible-mobile" type="button" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button class="header__search-button" data-js-search-button>
+          <div class="header__search-button-icon">
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8.50012" cy="8.5" r="7.5" stroke="#151314" stroke-width="2" />
+              <rect x="14.4143" y="13" width="8" height="2" rx="1" transform="rotate(45 14.4143 13)" fill="#151314" />
+            </svg>
+          </div>
+        </button>
+        <button class="header__switch-theme-button" data-js-switch-theme-button>
+          <div class="sun">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_1_32)">
+                <path
+                  d="M15 21C18.3137 21 21 18.3137 21 15C21 11.6863 18.3137 9 15 9C11.6863 9 9 11.6863 9 15C9 18.3137 11.6863 21 15 21Z"
+                  stroke="#151314" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M15 1.8V4.2" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M15 25.8V28.2" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M5.66394 5.664L7.36794 7.368" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M22.632 22.632L24.336 24.336" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1.79993 15H4.19993" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M25.7999 15H28.1999" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M5.66394 24.336L7.36794 22.632" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M22.632 7.368L24.336 5.664" stroke="#151314" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_32">
+                  <rect width="28.8" height="28.8" fill="white" transform="translate(0.599976 0.599998)" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="moon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M25.2001 15.948C25.0113 17.9906 24.2447 19.9373 22.9899 21.5601C21.7352 23.183 20.0442 24.415 18.1149 25.1118C16.1856 25.8087 14.0976 25.9417 12.0955 25.4953C10.0933 25.0489 8.25965 24.0415 6.80912 22.5909C5.3586 21.1404 4.35118 19.3068 3.90474 17.3046C3.4583 15.3024 3.59131 13.2145 4.2882 11.2852C4.9851 9.35581 6.21705 7.66484 7.83991 6.4101C9.46277 5.15536 11.4094 4.38876 13.4521 4.2C12.2561 5.81792 11.6807 7.81134 11.8303 9.81769C11.9799 11.8241 12.8447 13.7101 14.2673 15.1327C15.69 16.5554 17.576 17.4201 19.5824 17.5698C21.5887 17.7194 23.5821 17.1439 25.2001 15.948Z"
+                stroke="#A7A5A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <input class="header__search-field" type="text" placeholder="Enter text" id="search-field" data-js-search-field>
+  </header>
+  <main class="content">
+    
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

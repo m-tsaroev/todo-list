@@ -1,4 +1,4 @@
-import TasksList from "../TasksList"
+import TasksList from "../TasksList/TasksList"
 
 class SearchField {
   selectors = {
