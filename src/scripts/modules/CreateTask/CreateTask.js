@@ -1,4 +1,5 @@
 import { getCheckedStorage } from "../../utils/getCheckedStorage"
+import { Message } from "../Message/Message"
 import TasksList from "../TasksList/TasksList"
 
 class CreateTask {
@@ -34,14 +35,14 @@ class CreateTask {
       description: taskDescription
     }
 
-    const taskList = [...getCheckedStorage(TasksList.tasksListStorageKey), task]
+    const taskList = [task, ...getCheckedStorage(TasksList.tasksListStorageKey)]
 
     localStorage.setItem(TasksList.tasksListStorageKey, JSON.stringify(taskList))
 
     this.nameFieldElement.value = ''
     this.descriptionFieldElement.value = ''
 
-    console.log(1);
+    Message.showAndHide()
   }
 
   bindEvents() {

@@ -676,6 +676,9 @@ button[aria-label]::before {
     transform: translateY(-5px);
   }
 }
+.tasks__item-description {
+  opacity: 0;
+}
 .tasks__item.is-active .tasks__item-description {
   padding: 30px 20px;
   height: auto;
@@ -683,6 +686,7 @@ button[aria-label]::before {
   font-size: clamp(1rem, 0.5892857143rem + 0.5714285714vw, 1.125rem);
   margin-top: 10px;
   z-index: auto;
+  opacity: 1;
 }
 .tasks__item.is-active .tasks__item-button.open {
   background-color: var(--font-color);
@@ -776,6 +780,9 @@ button[aria-label]::before {
   margin-top: -10px;
   z-index: -1;
 }
+.tasks__item-description p {
+  white-space: pre-wrap;
+}
 
 .burger-button {
   width: 54px;
@@ -860,7 +867,7 @@ button[aria-label]::before {
 }
 .create-task__field:focus {
   outline: none;
-  box-shadow: 0px 0px 10px 0px var(--font-color);
+  box-shadow: var(--shadow);
 }
 .create-task__field::placeholder {
   color: var(--color-gray-15);
@@ -877,18 +884,47 @@ button[aria-label]::before {
   background-color: var(--opposite-color);
   color: var(--opposite-font-color);
   border: none;
+  transition-duration: var(--transition-duration);
 }
 @media (any-hover: hover) {
   .create-task__button:hover {
-    background-color: var(--opposite-font-color);
-    color: var(--opposite-color);
+    box-shadow: var(--shadow);
   }
 }
 @media (any-hover: none) {
   .create-task__button:active {
-    background-color: var(--opposite-font-color);
-    color: var(--opposite-color);
+    box-shadow: var(--shadow);
   }
+}
+
+.message {
+  position: fixed;
+  right: 0;
+  translate: 100% 0;
+  bottom: 75px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  background-color: var(--header-background-color);
+  border-radius: 50px;
+  transition-duration: var(--transition-duration-long);
+  backdrop-filter: blur(10px);
+}
+.message.is-active {
+  right: 40px;
+  translate: 0 0;
+}
+.message svg rect {
+  fill: var(--color-green);
+}
+.message svg path {
+  stroke: var(--color-light);
+  fill: var(--color-light);
+}
+.message span {
+  font-size: 18px;
+  color: var(--opposite-color);
 }
 
 /*# sourceMappingURL=main.css.map */

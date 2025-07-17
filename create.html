@@ -86,8 +86,10 @@
           Create
         </h1>
         <div class="create-task__form">
-          <input name="task-name" type="text" class="create-task__field" placeholder="Task name" data-js-create-name-field>
-          <textarea name="description" class="create-task__field" placeholder="Description" data-js-create-description-field></textarea>
+          <input name="task-name" type="text" class="create-task__field" placeholder="Task name"
+            data-js-create-name-field>
+          <textarea name="description" class="create-task__field" placeholder="Description"
+            data-js-create-description-field></textarea>
           <button type="button" class="create-task__button" data-js-create-button>
             Create
           </button>
@@ -95,6 +97,19 @@
       </div>
     </section>
   </main>
+
+  <div class="message" data-js-message>
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="16" fill="#004C2E" />
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M23.9939 9.43558C24.3056 9.70834 24.3372 10.1822 24.0644 10.4939L13.5644 22.4939C13.4277 22.6501 13.2324 22.7427 13.025 22.7496C12.8175 22.7565 12.6164 22.6771 12.4697 22.5303L7.96967 18.0303C7.67678 17.7374 7.67678 17.2626 7.96967 16.9697C8.26256 16.6768 8.73744 16.6768 9.03033 16.9697L12.9635 20.9028L22.9356 9.50613C23.2083 9.1944 23.6822 9.16282 23.9939 9.43558Z"
+        fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+
+    <span>
+      Task added
+    </span>
+  </div>
 
   <script type="module" src="/src/main.js"></script>
 </body>

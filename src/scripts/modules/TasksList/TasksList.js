@@ -15,18 +15,6 @@ class TasksList {
   c = 0
 
   constructor() {
-    // let newTasks = []
-
-    // for (let i = 0; i < 20; i++) {
-    //   newTasks.push({
-    //     id: i,
-    //     title: `Task ${i}`,
-    //     description:
-    //       'description description description description description description description',
-    //   })
-    // }
-
-    // localStorage.setItem(TasksList.tasksListStorageKey, JSON.stringify(newTasks))
     if (TasksList.tasksListElement) {
       TasksList.renderTasks()
     }

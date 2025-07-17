@@ -1,7 +1,6 @@
 @use '../helpers' as *;
 
 .tasks {
-
   &__body {
     display: flex;
     flex-direction: column;
@@ -27,6 +26,10 @@
       transform: translateY(-5px);
     }
 
+    &-description {
+      opacity: 0;
+    }
+
     &.is-active {
       .tasks__item-description {
         padding: 30px 20px;
@@ -35,6 +38,7 @@
         font-size: fluid-to-laptop(18, 16);
         margin-top: 10px;
         z-index: auto;
+        opacity: 1;
       }
 
       .tasks__item-button.open {
@@ -49,7 +53,6 @@
       opacity: 0.5;
 
       .tasks__item-title {
-
         position: relative;
 
         &::before {
@@ -133,6 +136,9 @@
       width: 60%;
       margin-top: -10px;
       z-index: -1;
+      p {
+        white-space: pre-wrap;
+      }
     }
   }
 }

@@ -1,0 +1,35 @@
+.message {
+  position: fixed;
+  right: 0;
+  translate: 100% 0;
+  bottom: 75px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  background-color: var(--header-background-color);
+  border-radius: 50px;
+  transition-duration: var(--transition-duration-long);
+  backdrop-filter: blur(10px);
+
+  &.is-active {
+    right: 40px;
+    translate: 0 0;
+  }
+
+  svg{
+    rect {
+      fill: var(--color-green);
+    }
+
+    path {
+      stroke: var(--color-light);
+      fill: var(--color-light);
+    }
+  }
+
+  span {
+    font-size: 18px;
+    color: var(--opposite-color);
+  }
+}

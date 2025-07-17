@@ -30,7 +30,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0px 0px 10px 0px var(--font-color);
+      box-shadow: var(--shadow);
     }
 
     &::placeholder {
@@ -51,10 +51,10 @@
     background-color: var(--opposite-color);
     color: var(--opposite-font-color);
     border: none;
+    transition-duration: var(--transition-duration);
 
     @include hover {
-      background-color: var(--opposite-font-color);
-      color: var(--opposite-color);
+      box-shadow: var(--shadow);
     }
   }
 }

@@ -2,6 +2,7 @@ import { CreateTask } from './scripts/modules/CreateTask/CreateTask'
 import { HaederItems } from './scripts/modules/HeaderItems/HeaderItems'
 import { HeaderMenu } from './scripts/modules/HeaderMenu/HeaderMenu'
 import { HistoryTasks } from './scripts/modules/HistoryTasks/HistoryTasks'
+import { Message } from './scripts/modules/Message/Message'
 import { SearchField } from './scripts/modules/SearchField/SearchField'
 import { SwitchTheme } from './scripts/modules/SwitchTheme/SwitchTheme'
 import { Task } from './scripts/modules/Task/Task'
@@ -15,3 +16,4 @@ new SearchField()
 new HistoryTasks()
 new HeaderMenu()
 new CreateTask()
+new Message()
