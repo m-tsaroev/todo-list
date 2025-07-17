@@ -18,7 +18,7 @@
 @mixin flex-center($isInline: false) {
   @if $isInline {
     display: inline-flex;
-  } @else  {
+  } @else {
     display: flex;
   }
 
@@ -45,6 +45,11 @@
   translate: 0 -50%;
 }
 
+@mixin abs-cover {
+  position: absolute;
+  inset: 0;
+}
+
 @mixin square($size) {
   width: $size;
   height: $size;
@@ -62,4 +67,3 @@
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
 }
-  

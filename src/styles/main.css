@@ -300,51 +300,73 @@ main {
   flex-grow: 1;
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+.main-section__title {
+  color: var(--color-gray-15);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   color: var(--color-light);
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
   font-family: var(--font-family-accent);
   font-weight: 500;
 }
 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   font-weight: 600;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: clamp(2.75rem, 2.6621621622rem + 0.3603603604vw, 3rem);
   line-height: 1;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: clamp(1.75rem, 1.0912162162rem + 2.7027027027vw, 3.625rem);
   line-height: 1.3;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: clamp(1.5rem, 1.1486486486rem + 1.4414414414vw, 2.5rem);
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: clamp(1.125rem, 0.9493243243rem + 0.7207207207vw, 1.625rem);
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: clamp(1.125rem, 0.9932432432rem + 0.5405405405vw, 1.5rem);
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: clamp(1rem, 0.9121621622rem + 0.3603603604vw, 1.25rem);
 }
 
@@ -413,6 +435,11 @@ button[aria-label]::before {
   padding: clamp(0.625rem, -1.4285714286rem + 2.8571428571vw, 1.25rem);
   backdrop-filter: blur(10px);
 }
+@media (width <= 47.99875rem) {
+  .header__inner {
+    backdrop-filter: none;
+  }
+}
 .header__logo {
   border-radius: 50%;
 }
@@ -426,6 +453,24 @@ button[aria-label]::before {
     box-shadow: 0px 0px 10px 0px var(--font-color);
   }
 }
+@media (width <= 47.99875rem) {
+  .header__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    translate: 0 -100%;
+    width: 100vw;
+    height: 100vh;
+    z-index: 101;
+    background-color: var(--header-background-color);
+    transition-duration: var(--transition-duration-long);
+  }
+  .header__menu.is-open {
+    translate: 0;
+  }
+}
 .header__menu-list {
   display: flex;
   align-items: center;
@@ -433,6 +478,14 @@ button[aria-label]::before {
   column-gap: 5px;
   border: 2px solid var(--font-color);
   border-radius: 100px;
+}
+@media (width <= 47.99875rem) {
+  .header__menu-list {
+    flex-direction: column;
+    padding: 0;
+    row-gap: 20px;
+    border: none;
+  }
 }
 .header__menu-item {
   border-radius: 100px;
@@ -458,6 +511,7 @@ button[aria-label]::before {
 }
 .header__buttons {
   display: flex;
+  align-items: center;
   column-gap: 10px;
 }
 @media (any-hover: hover) {
@@ -588,9 +642,6 @@ button[aria-label]::before {
   align-items: center;
   row-gap: clamp(3.125rem, 1.1486486486rem + 8.1081081081vw, 8.75rem);
 }
-.tasks__title {
-  color: var(--color-gray-15);
-}
 .tasks__list {
   display: grid;
   row-gap: 20px;
@@ -708,6 +759,61 @@ button[aria-label]::before {
   width: 60%;
   margin-top: -10px;
   z-index: -1;
+}
+
+.burger-button {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 6px;
+  background: transparent;
+  border: 1px solid var(--font-color);
+  border-radius: 50%;
+  position: relative;
+  transition-duration: var(--transition-duration);
+  z-index: 101;
+}
+.burger-button span {
+  width: 25px;
+  height: 2px;
+  background-color: var(--font-color);
+  border-radius: 20px;
+  transition-duration: var(--transition-duration);
+}
+@media (any-hover: hover) {
+  .burger-button:hover {
+    background-color: var(--font-color);
+  }
+  .burger-button:hover span {
+    background-color: var(--blocks-color);
+  }
+}
+@media (any-hover: none) {
+  .burger-button:active {
+    background-color: var(--font-color);
+  }
+  .burger-button:active span {
+    background-color: var(--blocks-color);
+  }
+}
+.burger-button.is-active span:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+.burger-button.is-active span:first-child, .burger-button.is-active span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+.burger-button.is-active span:first-child {
+  rotate: 45deg;
+}
+.burger-button.is-active span:last-child {
+  rotate: -45deg;
 }
 
 /*# sourceMappingURL=main.css.map */

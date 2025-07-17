@@ -10,10 +10,6 @@
     row-gap: fluid(140, 50);
   }
 
-  &__title {
-    color: var(--color-gray-15);
-  }
-
   &__list {
     display: grid;
     row-gap: 20px;

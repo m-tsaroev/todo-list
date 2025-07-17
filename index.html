@@ -11,7 +11,7 @@
 
 <body>
 
-  <header class="header">
+  <header class="header" data-js-header>
     <div class="header__inner inner container">
       <a class="header__logo" href="https://github.com/m-tsaroev" aria-label="Author github" target="_blank">
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@
             fill="#A7A5A6" />
         </svg>
       </a>
-      <nav class="header__menu">
+      <nav class="header__menu" data-js-header-menu>
         <ul class="header__menu-list">
           <li class="header__menu-item" data-js-header-menu-item>
             <a href="/" class="header__menu-link">All</a>
@@ -31,7 +31,7 @@
         </ul>
       </nav>
       <div class="header__buttons">
-        <button class="header__burger-button visible-mobile" type="button" aria-label="Open menu">
+        <button class="header__burger-button burger-button visible-mobile" type="button" aria-label="Open menu" data-js-burger-button>
           <span></span>
           <span></span>
           <span></span>
@@ -90,7 +90,7 @@
   <main class="content">
     <section class="tasks__section tasks" aria-labelledby="tasks">
       <div class="tasks__body container">
-        <h1 class="tasks__title" id="tasks">
+        <h1 class="tasks__title main-section__title" id="tasks">
           Your tasks
         </h1>
         <ul class="tasks__list" data-js-tasks-list>

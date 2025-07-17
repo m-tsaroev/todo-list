@@ -1,0 +1,52 @@
+@use '../helpers' as *;
+
+.burger-button {
+  @include square(54px);
+  @include flex-center;
+
+  flex-direction: column;
+  row-gap: 6px;
+  background: transparent;
+  border: 1px solid var(--font-color);
+  border-radius: 50%;
+  position: relative;
+  transition-duration: var(--transition-duration);
+  z-index: 101;
+
+  span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--font-color);
+    border-radius: 20px;
+    transition-duration: var(--transition-duration);
+  }
+
+  @include hover {
+    background-color: var(--font-color);
+
+    span {
+      background-color: var(--blocks-color);
+    }
+  }
+
+  &.is-active {
+    span {
+      &:nth-child(2) {
+        @include hide;
+      }
+
+      &:first-child,
+      &:last-child {
+        @include abs-center;
+      }
+
+      &:first-child {
+        rotate: 45deg;
+      }
+
+      &:last-child {
+        rotate: -45deg;
+      }
+    }
+  }
+}
