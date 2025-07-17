@@ -1,0 +1,60 @@
+@use '../helpers' as *;
+
+.create-task {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: fluid(140, 50);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    row-gap: fluid(20, 10);
+
+    @include mobile-s {
+      align-items: stretch;
+    }
+  }
+
+  &__field {
+    padding: 20px;
+    border-radius: var(--border-radius-l);
+    background-color: var(--blocks-color);
+    border: none;
+    width: fluid(800, 300);
+    color: var(--color-light);
+    transition-duration: var(--transition-duration-long);
+
+    &:focus {
+      outline: none;
+      box-shadow: 0px 0px 10px 0px var(--font-color);
+    }
+
+    &::placeholder {
+      color: var(--color-gray-15);
+    }
+
+    &:nth-child(2) {
+      padding-top: 30px;
+      height: fluid-to-laptop(200, 175);
+      resize: none;
+      overflow: auto;
+    }
+  }
+
+  &__button {
+    padding: fluid-to-laptop(13, 11) fluid-to-laptop(42, 38);
+    border-radius: 20px;
+    background-color: var(--opposite-color);
+    color: var(--opposite-font-color);
+    border: none;
+
+    @include hover {
+      background-color: var(--opposite-font-color);
+      color: var(--opposite-color);
+    }
+  }
+}

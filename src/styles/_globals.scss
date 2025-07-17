@@ -20,6 +20,12 @@ main {
   flex-grow: 1;
 }
 
+section {
+  &:first-child {
+    padding-top: calc(100px + fluid-to-laptop(50, 40));
+  }
+}
+
 .main-section__title {
   color: var(--color-gray-15);
 }

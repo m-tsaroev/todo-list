@@ -1,4 +1,4 @@
-import TasksList from "../TasksList/TasksList"
+import TasksList from '../TasksList/TasksList'
 
 class SearchField {
   selectors = {
@@ -15,7 +15,10 @@ class SearchField {
       this.selectors.searchButton
     )
     this.searchFieldElement = document.querySelector(this.selectors.searchField)
-    this.bindEvents()
+
+    if (this.searchButtonElement && this.searchFieldElement) {
+      this.bindEvents()
+    }
   }
 
   onSearchButtonClick = (event) => {
@@ -30,7 +33,10 @@ class SearchField {
       !targetClasses.value.includes(this.stateClasses.isActive)
     )
 
-    targetButton.innerHTML = targetClasses.value.includes(this.stateClasses.isActive) ? `
+    targetButton.innerHTML = targetClasses.value.includes(
+      this.stateClasses.isActive
+    )
+      ? `
       <div class="header__search-button-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -38,7 +44,8 @@ class SearchField {
             fill="#151314" />
         </svg>
       </div>
-    ` : `
+    `
+      : `
       <div class="header__search-button-icon">
         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="8.50012" cy="8.5" r="7.5" stroke="#151314" stroke-width="2" />
@@ -47,17 +54,27 @@ class SearchField {
       </div>
     `
 
-    this.searchFieldElement.classList.toggle(this.stateClasses.isActive, targetClasses.value.includes(this.stateClasses.isActive))
+    this.searchFieldElement.classList.toggle(
+      this.stateClasses.isActive,
+      targetClasses.value.includes(this.stateClasses.isActive)
+    )
 
-    this.searchFieldElement.focus()
+    targetClasses.value.includes(this.stateClasses.isActive)
+      ? this.searchFieldElement.focus()
+      : this.searchFieldElement.blur()
   }
 
   onSearchFieldChange = (event) => {
     const { target } = event
 
-    const filtedTasksList = TasksList.tasksListFromStorage.filter(({title}) => {
-      return title.trim().toLowerCase().includes(target.value.trim().toLowerCase())
-    })
+    const filtedTasksList = TasksList.tasksListFromStorage.filter(
+      ({ title }) => {
+        return title
+          .trim()
+          .toLowerCase()
+          .includes(target.value.trim().toLowerCase())
+      }
+    )
 
     TasksList.renderTasks(filtedTasksList, true)
   }

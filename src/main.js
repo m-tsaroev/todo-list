@@ -1,3 +1,4 @@
+import { CreateTask } from './scripts/modules/CreateTask/CreateTask'
 import { HaederItems } from './scripts/modules/HeaderItems/HeaderItems'
 import { HeaderMenu } from './scripts/modules/HeaderMenu/HeaderMenu'
 import { HistoryTasks } from './scripts/modules/HistoryTasks/HistoryTasks'
@@ -13,3 +14,4 @@ new TasksList()
 new SearchField()
 new HistoryTasks()
 new HeaderMenu()
+new CreateTask()

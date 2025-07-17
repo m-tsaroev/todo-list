@@ -1,18 +1,17 @@
 @use 'helpers' as *;
 
 :root {
-
   --color-light: #ffffff;
 
   --color-dark: #000000;
 
-  --color-red: #D70024;
+  --color-red: #d70024;
 
-  --color-green: #004C2E;
+  --color-green: #004c2e;
 
-  --color-gray-05: #A7A5A6;
-  --color-gray-10: #7B797A;
-  --color-gray-15: #4E4C4D;
+  --color-gray-05: #a7a5a6;
+  --color-gray-10: #7b797a;
+  --color-gray-15: #4e4c4d;
   --color-gray-20: #292728;
   --color-gray-25: #191718;
   --color-gray-30: #151314;
@@ -24,7 +23,8 @@
   --header-background-color-blur: #19171860;
   --task-button-color: var(--color-gray-25);
   --task-button-active-font-color: var(--color-gray-25);
-  
+  --opposite-color: var(--color-light);
+  --opposite-font-color: var(--color-dark);
 
   --font-family-base: 'Gotham', sans-serif;
 
@@ -36,10 +36,11 @@
 
   --border-radius-l: #{fluid(50, 30)};
 
+  --shadow: 0px 0px 10px 0px var(--font-color);
+
   @include laptop {
     --container-width: #{rems(1150)};
   }
-
 }
 
 html.light {
@@ -47,7 +48,9 @@ html.light {
   --blocks-color: var(--color-gray-10);
   --backgroing-color: var(--color-gray-05);
   --header-background-color: var(--color-gray-10);
-  --header-background-color-blur: #7B797A60;
+  --header-background-color-blur: #7b797a60;
   --task-button-color: var(--color-gray-15);
   --task-button-active-font-color: var(--color-light);
+  --opposite-color: var(--color-dark);
+  --opposite-font-color: var(--color-light);
 }

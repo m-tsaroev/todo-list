@@ -1,4 +1,4 @@
-import { getCheckedStorage } from "../../utils/getCheckedStorage"
+import { getCheckedStorage } from '../../utils/getCheckedStorage'
 
 class TasksList {
   static selectors = {
@@ -27,8 +27,9 @@ class TasksList {
     // }
 
     // localStorage.setItem(TasksList.tasksListStorageKey, JSON.stringify(newTasks))
-
-    TasksList.renderTasks(TasksList.tasksListFromStorage)
+    if (TasksList.tasksListElement) {
+      TasksList.renderTasks()
+    }
   }
 
   static renderTasks() {

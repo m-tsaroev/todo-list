@@ -28,8 +28,6 @@ class Task {
       return
     }
 
-    console.log(taskElement)
-
     const task = {
       id: taskElement.getAttribute('id'),
       name: taskElement.querySelector('h2').innerText,

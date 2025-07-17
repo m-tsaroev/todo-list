@@ -1,7 +1,6 @@
 @use '../helpers' as *;
 
 .tasks {
-  padding-top: calc(100px + fluid-to-laptop(50, 40));
 
   &__body {
     display: flex;
@@ -20,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: fluid-to-laptop(800, 700);
+    width: fluid(800, 300);
     margin-bottom: 10px;
     transition-duration: var(--transition-duration);
 
@@ -83,6 +82,10 @@
       display: flex;
       align-items: center;
       column-gap: 10px;
+
+      @include mobile {
+        column-gap: 5px;
+      }
     }
 
     &-button {
@@ -93,7 +96,7 @@
       color: var(--color-light);
 
       &:not(:last-child) {
-        padding: 13px;
+        padding: fluid(13, 8);
       }
 
       &.delete {
@@ -105,7 +108,7 @@
       }
 
       &.open {
-        padding: 16px 24px;
+        padding: fluid(16, 12) 24px;
         font-size: fluid-to-laptop(18, 16);
         background-color: var(--task-button-color);
 

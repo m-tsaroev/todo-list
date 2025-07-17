@@ -11,7 +11,7 @@
 
 <body>
 
-  <header class="header">
+  <header class="header" data-js-header>
     <div class="header__inner inner container">
       <a class="header__logo" href="https://github.com/m-tsaroev" aria-label="Author github" target="_blank">
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@
             fill="#A7A5A6" />
         </svg>
       </a>
-      <nav class="header__menu">
+      <nav class="header__menu" data-js-header-menu>
         <ul class="header__menu-list">
           <li class="header__menu-item" data-js-header-menu-item>
             <a href="/" class="header__menu-link">All</a>
@@ -31,18 +31,11 @@
         </ul>
       </nav>
       <div class="header__buttons">
-        <button class="header__burger-button visible-mobile" type="button" aria-label="Open menu">
+        <button class="header__burger-button burger-button visible-mobile" type="button" aria-label="Open menu"
+          data-js-burger-button>
           <span></span>
           <span></span>
           <span></span>
-        </button>
-        <button class="header__search-button" data-js-search-button>
-          <div class="header__search-button-icon">
-            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8.50012" cy="8.5" r="7.5" stroke="#151314" stroke-width="2" />
-              <rect x="14.4143" y="13" width="8" height="2" rx="1" transform="rotate(45 14.4143 13)" fill="#151314" />
-            </svg>
-          </div>
         </button>
         <button class="header__switch-theme-button" data-js-switch-theme-button>
           <div class="sun">
@@ -85,14 +78,20 @@
         </button>
       </div>
     </div>
-    <input class="header__search-field" type="text" placeholder="Enter text" id="search-field" data-js-search-field>
   </header>
   <main class="content">
-    <section class="create-task__section section" aria-labelledby="create-task">
+    <section class="create-task__section section" aria-labelledby="create-task" data-js-create-tasks>
       <div class="create-task__body container">
-        <h1 class="main-section__title">
-          Your tasks
+        <h1 class="main-section__title" id="create-task">
+          Create
         </h1>
+        <div class="create-task__form">
+          <input name="task-name" type="text" class="create-task__field" placeholder="Task name" data-js-create-name-field>
+          <textarea name="description" class="create-task__field" placeholder="Description" data-js-create-description-field></textarea>
+          <button type="button" class="create-task__button" data-js-create-button>
+            Create
+          </button>
+        </div>
       </div>
     </section>
   </main>
