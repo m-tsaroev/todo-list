@@ -20,10 +20,8 @@ class TasksList {
     }
   }
 
-  static renderTasks() {
+  static renderTasks(tasks = getCheckedStorage(TasksList.tasksListStorageKey)) {
     TasksList.tasksListElement.innerHTML = ''
-
-    const tasks = getCheckedStorage(TasksList.tasksListStorageKey)
 
     tasks
       ? tasks.forEach(({ title, description, id }) => {

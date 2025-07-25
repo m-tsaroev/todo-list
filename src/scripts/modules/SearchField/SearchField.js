@@ -1,3 +1,4 @@
+import { getCheckedStorage } from '../../utils/getCheckedStorage'
 import TasksList from '../TasksList/TasksList'
 
 class SearchField {
@@ -67,7 +68,9 @@ class SearchField {
   onSearchFieldChange = (event) => {
     const { target } = event
 
-    const filtedTasksList = TasksList.tasksListFromStorage.filter(
+    const tasks = getCheckedStorage(TasksList.tasksListStorageKey)
+
+    const filtedTasksList = tasks.filter(
       ({ title }) => {
         return title
           .trim()
