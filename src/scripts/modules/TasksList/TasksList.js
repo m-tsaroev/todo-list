@@ -67,14 +67,18 @@ class TasksList {
 
     localStorage.setItem(TasksList.tasksListStorageKey, '')
 
-    TasksList.renderTasks()
+    if (TasksList.tasksListElement) {
+      TasksList.renderTasks()
+    }
 
     localStorage.setItem(
       TasksList.tasksListStorageKey,
       JSON.stringify(filteredTasks)
     )
 
-    TasksList.renderTasks()
+    if (TasksList.tasksListElement) {
+      TasksList.renderTasks()
+    }
   }
 }
 

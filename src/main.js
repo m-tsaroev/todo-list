@@ -4,6 +4,7 @@ import { HeaderMenu } from './scripts/modules/HeaderMenu/HeaderMenu'
 import { HistoryTasks } from './scripts/modules/HistoryTasks/HistoryTasks'
 import { Message } from './scripts/modules/Message/Message'
 import { SearchField } from './scripts/modules/SearchField/SearchField'
+import { Select } from './scripts/modules/Select/Select'
 import { SwitchTheme } from './scripts/modules/SwitchTheme/SwitchTheme'
 import { Task } from './scripts/modules/Task/Task'
 import TasksList from './scripts/modules/TasksList/TasksList'
@@ -17,3 +18,4 @@ new HistoryTasks()
 new HeaderMenu()
 new CreateTask()
 new Message()
+new Select()

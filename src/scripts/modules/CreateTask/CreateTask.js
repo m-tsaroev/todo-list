@@ -1,5 +1,6 @@
 import { getCheckedStorage } from "../../utils/getCheckedStorage"
 import { Message } from "../Message/Message"
+import { Select } from "../Select/Select"
 import TasksList from "../TasksList/TasksList"
 
 class CreateTask {
@@ -10,7 +11,7 @@ class CreateTask {
     createButton: '[data-js-create-button]'
   }
 
-  constructor() {
+  constructor(select = new Select()) {
     this.rootElement = document.querySelector(this.selectors.root)
     if (!this.rootElement) {
       return
@@ -19,6 +20,7 @@ class CreateTask {
     this.descriptionFieldElement = this.rootElement.querySelector(this.selectors.descriptionField)
     this.createButtonElement = this.rootElement.querySelector(this.selectors.createButton)
     this.bindEvents()
+    this.select = select
   }
 
   onCreateButtonClick = () => {
@@ -43,6 +45,7 @@ class CreateTask {
     this.descriptionFieldElement.value = ''
 
     Message.showAndHide()
+    this.select.updateUI()
   }
 
   bindEvents() {

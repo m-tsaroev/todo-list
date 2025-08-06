@@ -18,7 +18,7 @@
 
   --font-color: var(--color-gray-05);
   --blocks-color: var(--color-gray-20);
-  --backgroing-color: var(--color-gray-30);
+  --background-color: var(--color-gray-30);
   --header-background-color: var(--color-gray-25);
   --header-background-color-blur: #19171860;
   --task-button-color: var(--color-gray-25);
@@ -29,7 +29,7 @@
   --font-family-base: 'Gotham', sans-serif;
 
   --container-width: 1500px;
-  --container-padding-x: 10px;
+  --container-padding-x: 15px;
 
   --transition-duration: 0.2s;
   --transition-duration-long: 0.4s;
@@ -46,7 +46,7 @@
 html.light {
   --font-color: var(--color-gray-30);
   --blocks-color: var(--color-gray-10);
-  --backgroing-color: var(--color-gray-05);
+  --background-color: var(--color-gray-05);
   --header-background-color: var(--color-gray-10);
   --header-background-color-blur: #7b797a60;
   --task-button-color: var(--color-gray-15);

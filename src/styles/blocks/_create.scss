@@ -1,6 +1,8 @@
 @use '../helpers' as *;
 
 .create-task {
+  padding-bottom: fluid(240, 60);
+
   &__body {
     display: flex;
     flex-direction: column;

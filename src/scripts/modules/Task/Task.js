@@ -31,7 +31,7 @@ class Task {
     const task = {
       id: taskElement.getAttribute('id'),
       name: taskElement.querySelector('h2').innerText,
-      description: taskElement.querySelector('p').innerText,
+      description: taskElement.querySelector('p')?.innerText,
     }
 
     const isOpenCloseButtonElement = target.closest(
@@ -65,7 +65,12 @@ class Task {
       taskElement.classList.add(this.stateClasses.isDelete)
 
       TasksList.deleteTask(task.id)
+      console.log(9);
     }
+
+    
+      console.log(10);
+    
   }
 
   bindEvents() {

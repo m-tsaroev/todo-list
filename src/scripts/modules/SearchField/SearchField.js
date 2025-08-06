@@ -70,14 +70,12 @@ class SearchField {
 
     const tasks = getCheckedStorage(TasksList.tasksListStorageKey)
 
-    const filtedTasksList = tasks.filter(
-      ({ title }) => {
-        return title
-          .trim()
-          .toLowerCase()
-          .includes(target.value.trim().toLowerCase())
-      }
-    )
+    const filtedTasksList = tasks.filter(({ title }) => {
+      return title
+        .trim()
+        .toLowerCase()
+        .includes(target.value.trim().toLowerCase())
+    })
 
     TasksList.renderTasks(filtedTasksList, true)
   }

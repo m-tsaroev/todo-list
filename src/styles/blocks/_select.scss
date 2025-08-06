@@ -1,0 +1,149 @@
+@use '../helpers' as *;
+
+.select {
+  --selectButtonIconArrowUrl: url('/arrow-down.svg');
+  --selectPaddingInline: 10px;
+  --selectGap: 10px;
+  --selectArrowDownWidth: 20px;
+
+  flex-shrink: 0;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  &__original-control,
+  &__button {
+    border: none;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--font-color);
+    background-color: var(--blocks-color);
+  }
+
+  &__original-control {
+    padding-left: var(--selectPaddingInline);
+    padding-right: calc(
+      var(--selectArrowDownWidth) + var(--selectGap) +
+        var(--selectPaddingInline)
+    );
+    padding-block: 12px;
+    appearance: none;
+    background-image: var(--selectButtonIconArrowUrl);
+    background-position: calc(100% - var(--selectPaddingInline));
+    background-repeat: no-repeat;
+    background-size: var(--selectArrowDownWidth);
+
+    @include mobile-above {
+      @include visually-hidden;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: var(--selectGap);
+    padding-inline: var(--selectPaddingInline);
+    padding-block: 10px;
+    transition-duration: var(--transition-duration);
+
+    @include mobile {
+      @include visually-hidden;
+    }
+
+    &::after {
+      @include square(var(--selectArrowDownWidth));
+
+      content: '';
+      background: var(--selectButtonIconArrowUrl) center/contain no-repeat;
+      transition-duration: inherit;
+    }
+
+    &.is-expanded {
+      &::after {
+        rotate: 180deg;
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    display: grid;
+    min-width: 150px;
+    min-height: 100px;
+    background-color: white;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--font-color);
+    background-color: var(--blocks-color);
+    text-align: center;
+    transition-duration: var(--transition-duration);
+    z-index: 100;
+
+    &.is-on-the-left-side {
+      left: 0;
+      transform-origin: 0 0;
+    }
+
+    &.is-on-the-right-side {
+      right: 0;
+      transform-origin: 100% 0;
+    }
+
+    &:not(.is-expanded) {
+      @include hide;
+
+      scale: 0;
+    }
+  }
+
+  &__option {
+    @include flex-center;
+
+    transition-duration: var(--transition-duration);
+    cursor: pointer;
+    position: relative;
+
+    @include hover {
+      color: var(--color-light);
+      background-color: var(--task-button-color);
+    }
+
+    &.is-current {
+      &::after {
+        @include abs-y;
+        @include square(6px);
+
+        content: '';
+        right: 20px;
+        border-radius: 50%;
+        background-color: var(--font-color);
+      }
+    }
+
+    &.is-selected {
+      color: var(--color-light);
+      position: relative;
+
+      &::after {
+        @include abs-y;
+        @include square(6px);
+
+        content: '';
+        right: 20px;
+        border-radius: 50%;
+        background-color: var(--color-light);
+      }
+    }
+  }
+}

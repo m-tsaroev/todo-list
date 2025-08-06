@@ -80,7 +80,7 @@
     </div>
   </header>
   <main class="content">
-    <section class="create-task__section section" aria-labelledby="create-task" data-js-create-tasks>
+    <section class="create-task__section create-task" aria-labelledby="create-task" data-js-create-tasks>
       <div class="create-task__body container">
         <h1 class="main-section__title" id="create-task">
           Create
@@ -93,6 +93,47 @@
           <button type="button" class="create-task__button" data-js-create-button>
             Create
           </button>
+        </div>
+      </div>
+    </section>
+    <section class="lasts-tasks-section lasts-tasks" aria-labelledby="lasts-tasks-section">
+      <h2 class="visually-hidden" id="lasts-tasks-section">lasts-section</h2>
+      <div class="lasts-tasks__inner inner container">
+        <div class="lasts-tasks-select select" data-js-select>
+          <label class="lasts-tasks__select-label select-label visually-hidden" for="lasts-tasks-select"
+            id="lasts-tasks-label">
+            Lasts tasks label
+          </label>
+          <select name="lasts-tasks-select__original-control" id="lasts-tasks-select"
+            class="select__original-control lasts-tasks-select__original-control" tabindex="-1"
+            data-js-select-original-control>
+            <option value="last 5 tasks" selected>last 5 tasks</option>
+            <option value="last 10 tasks">last 10 tasks</option>
+            <option value="all">all</option>
+          </select>
+          <div class="select__body">
+            <div class="lasts-tasks-select__button select__button" role="combobox" aria-expanded="false"
+              aria-haspopup="listbox" aria-controls="lasts-tasks-dropdown" aria-labelledby="lasts-tasks-label"
+              tabindex="0" data-js-select-button>
+              last 5 tasks
+            </div>
+            <div class="lasts-tasks-select__dropdown select__dropdown" id="lasts-tasks-dropdown" role="listbox"
+              aria-labelledby="lasts-tasks-label" data-js-select-dropdown>
+              <div class="dropdown__option select__option" role="option" aria-selected="true" data-js-select-option>
+                last 5 tasks
+              </div>
+              <div class="dropdown__option select__option" role="option" aria-selected="true" data-js-select-option>
+                last 10 tasks
+              </div>
+              <div class="dropdown__option select__option" role="option" aria-selected="true" data-js-select-option>
+                all
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lasts-tasks-items">
+          <ul class="lasts-tasks-items__list" data-js-lasts-tasks-list>
+          </ul>
         </div>
       </div>
     </section>

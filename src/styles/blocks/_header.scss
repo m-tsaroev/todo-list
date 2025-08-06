@@ -15,11 +15,7 @@
     background-color: var(--header-background-color-blur);
     border-radius: 100px;
     padding: fluid-to-laptop(20, 10);
-    backdrop-filter: blur(10px);
-
-    @include mobile {
-      backdrop-filter: none;
-    }
+    backdrop-filter: blur(20px);
   }
 
   &__logo {
@@ -35,7 +31,7 @@
   &__menu {
     @include mobile {
       @include flex-center;
-      
+
       position: fixed;
       inset: 0;
       translate: 0 -100%;
