@@ -89,6 +89,7 @@
     text-align: center;
     transition-duration: var(--transition-duration);
     z-index: 100;
+    border: 4px solid var(--background-color);
 
     &.is-on-the-left-side {
       left: 0;
@@ -113,6 +114,7 @@
     transition-duration: var(--transition-duration);
     cursor: pointer;
     position: relative;
+    user-select: none;
 
     @include hover {
       color: var(--color-light);
@@ -125,7 +127,7 @@
         @include square(6px);
 
         content: '';
-        right: 20px;
+        right: 15px;
         border-radius: 50%;
         background-color: var(--font-color);
       }
@@ -140,7 +142,7 @@
         @include square(6px);
 
         content: '';
-        right: 20px;
+        right: 15px;
         border-radius: 50%;
         background-color: var(--color-light);
       }

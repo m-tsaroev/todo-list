@@ -1021,6 +1021,7 @@ button[aria-label]::before {
   text-align: center;
   transition-duration: var(--transition-duration);
   z-index: 100;
+  border: 4px solid var(--background-color);
 }
 .select__dropdown.is-on-the-left-side {
   left: 0;
@@ -1042,6 +1043,7 @@ button[aria-label]::before {
   transition-duration: var(--transition-duration);
   cursor: pointer;
   position: relative;
+  user-select: none;
 }
 @media (any-hover: hover) {
   .select__option:hover {
@@ -1062,7 +1064,7 @@ button[aria-label]::before {
   width: 6px;
   height: 6px;
   content: "";
-  right: 20px;
+  right: 15px;
   border-radius: 50%;
   background-color: var(--font-color);
 }
@@ -1077,7 +1079,7 @@ button[aria-label]::before {
   width: 6px;
   height: 6px;
   content: "";
-  right: 20px;
+  right: 15px;
   border-radius: 50%;
   background-color: var(--color-light);
 }
